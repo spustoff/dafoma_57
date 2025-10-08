@@ -118,39 +118,7 @@ struct SettingsView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack(spacing: 0) {
-                SettingsRow(
-                    icon: "bell.fill",
-                    title: "Notifications",
-                    subtitle: "Get reminded about your goals and tasks",
-                    iconColor: Color(red: 0.004, green: 0.635, blue: 1.0)
-                ) {
-                    Toggle("", isOn: $viewModel.userPreferences.notificationsEnabled)
-                        .toggleStyle(SwitchToggleStyle(tint: Color(red: 0.004, green: 0.635, blue: 1.0)))
-                        .onChange(of: viewModel.userPreferences.notificationsEnabled) { _ in
-                            viewModel.savePreferences()
-                        }
-                }
-                
-                Divider()
-                    .background(Color.white.opacity(0.1))
-                
-                SettingsRow(
-                    icon: "heart.fill",
-                    title: "Motivational Notifications",
-                    subtitle: "Daily inspiration and encouragement",
-                    iconColor: .red
-                ) {
-                    Toggle("", isOn: $viewModel.userPreferences.motivationalNotificationsEnabled)
-                        .toggleStyle(SwitchToggleStyle(tint: Color(red: 0.004, green: 0.635, blue: 1.0)))
-                        .disabled(!viewModel.userPreferences.notificationsEnabled)
-                        .onChange(of: viewModel.userPreferences.motivationalNotificationsEnabled) { _ in
-                            viewModel.savePreferences()
-                        }
-                }
-                
-                Divider()
-                    .background(Color.white.opacity(0.1))
-                
+
                 SettingsRow(
                     icon: "moon.fill",
                     title: "Dark Mode",
